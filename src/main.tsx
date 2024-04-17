@@ -1,13 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import "./index.css";
 // Routes
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 // Pages
 import Home from "./pages/Home.tsx";
 import Movie from "./pages/Movie.tsx";
 import Search from "./pages/Search.tsx";
+
+import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -15,7 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route element={<App />}>
           <Route path='/' element={<Home />} />
-          <Route path='movies/:id' element={<Movie />} />
+          <Route path='movie/:id' element={<Movie />} />
           <Route path='search' element={<Search />} />
         </Route>
       </Routes>
