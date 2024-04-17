@@ -33,8 +33,6 @@ const Navbar = () => {
           <BiSearchAlt />
         </button>
       </form>
-      {/* <Link to='/movie/1'>Movies</Link>
-      <Link to='/search'>Search</Link> */}
     </div>
   );
 };
