@@ -5,9 +5,9 @@ import App from "./App.tsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 // Pages
-import Home from "./pages/Home.tsx";
-import Movie from "./pages/Movie.tsx";
-import Search from "./pages/Search.tsx";
+import Home from "./pages/Home/Home.tsx";
+import Movie from "./pages/Movie/Movie.tsx";
+import Search from "./pages/Search/Search.tsx";
 
 import "./index.css";
 

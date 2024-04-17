@@ -1,4 +1,5 @@
-import React from "react";
+import "./Movie.css";
+import "../MovieGrid.css";
 
 const Movie = () => {
   return <div>Movie</div>;
