@@ -9,12 +9,12 @@ const apiKey = import.meta.env.VITE_API_KEY;
 
 const Search = () => {
   const [searchParams] = useSearchParams();
-  const [movie, setMovie] = useState([]);
+  const [movies, setMovies] = useState([]);
   const query = searchParams.get("q");
 
   const getSearchMovies = async (url) => {
     const res = await axios.get(url).then((res) => res.data.results);
-    setMovie(res);
+    setMovies(res);
   };
 
   useEffect(() => {
@@ -29,9 +29,9 @@ const Search = () => {
         Resultados para: <span className='query-text'>{query}</span>
       </h2>
       <div className='movies-container'>
-        {movie === 0 && <p>Carregando...</p>}
-        {movie.length > 0 &&
-          movie.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
+        {movies === 0 && <p>Carregando...</p>}
+        {movies.length > 0 &&
+          movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
       </div>
     </div>
   );
