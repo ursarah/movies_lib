@@ -39,6 +39,7 @@ const Movie = () => {
       {movie && (
         <>
           <MovieCard movie={movie} showLink={false} />
+          <p className='tagline'>{movie.tagline}</p>
           <div className='info'>
             <h3>
               <BsWallet2 /> Orçamento:
@@ -58,7 +59,7 @@ const Movie = () => {
             <p>{movie.runtime}</p>
           </div>
 
-          <div className='info'>
+          <div className='info description'>
             <h3>
               <BsFillFileEarmarkTextFill /> Descrição:
             </h3>
