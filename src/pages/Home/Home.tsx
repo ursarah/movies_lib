@@ -1,33 +1,19 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import MovieCard from "../../components/MovieCard";
+import useFetch from "../../hooks/useFetch";
 import "../MovieGrid.css";
 
-const moviesURL = import.meta.env.VITE_API;
-const apiKey = import.meta.env.VITE_API_KEY;
-
 const Home = () => {
-  const [topMovies, setTopMovies] = useState([]);
-
-  const getTopRatedMovies = async (url) => {
-    await axios.get(url).then((res) => {
-      setTopMovies(res.data.results);
-    });
-  };
-
-  useEffect(() => {
-    const topRatedURL = `${moviesURL}top_rated?${apiKey}`;
-
-    getTopRatedMovies(topRatedURL);
-  }, []);
+  const topMovies = useFetch();
 
   return (
     <div className='container'>
       <h2 className='title'>Melhores Filmes:</h2>
       <div className='movies-container'>
-        {topMovies === 0 && <p>Carregando...</p>}
-        {topMovies.length > 0 &&
-          topMovies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
+        {topMovies !== null && Array.isArray(topMovies) ? (
+          topMovies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
+        ) : (
+          <p>Carregando...</p>
+        )}
       </div>
     </div>
   );

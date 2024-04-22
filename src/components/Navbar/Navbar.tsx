@@ -1,13 +1,13 @@
 import { BiCameraMovie, BiSearchAlt } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 const Navbar = () => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!search) return;
 
