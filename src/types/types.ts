@@ -1,16 +1,27 @@
-export interface Movies {
-  topMovies: {
+export interface topMoviesId {}
+
+export interface Props {
+    movie: {
+        id?: number;
+        title?: string;
+        poster_path?: string;
+        vote_average?: number;
+        tagline?: string;
+        budget?: number;
+        revenue?: number;
+        runtime?: number;
+        overview?: string;
+    };
+    showLink?: boolean;
+}
+export interface Movie {
     id?: number;
     title?: string;
     poster_path?: string;
     vote_average?: number;
-  }[];
-}
-
-export interface topMoviesId {
-  tagline?: string;
-  budget?: number;
-  revenue?: number;
-  runtime?: number;
-  overview?: string;
+    tagline?: string;
+    budget?: number;
+    revenue?: number;
+    runtime?: number;
+    overview?: string;
 }
