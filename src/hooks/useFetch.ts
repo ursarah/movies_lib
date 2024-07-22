@@ -1,35 +1,22 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-
-interface topMovies {
-    id?: number;
-    title?: string;
-    poster_path?: string;
-    vote_average?: number;
-}
+import { topMovies } from '../types/types';
 
 const moviesURL = import.meta.env.VITE_API;
-const searchURL = import.meta.env.VITE_SEARCH;
 const apiKey = import.meta.env.VITE_API_KEY;
 
-function useFetch(query?: string | null) {
-    const [topMovies, setMovies] = useState<topMovies | null>(null);
+function useFetch() {
+    const [topMovies, setTopMovies] = useState<topMovies[]>([]);
+    const url = `${moviesURL}top_rated?${apiKey}`;
 
-    const getMovies = async (url: string) => {
+    const getTopMovies = async (url: string) => {
         const res = await axios.get(url).then((res) => res.data.results);
-
-        setMovies(res);
+        setTopMovies(res);
     };
 
     useEffect(() => {
-        let url = '';
-        if (query) {
-            url = `${searchURL}?${apiKey}&query=${query}`;
-        } else {
-            url = `${moviesURL}top_rated?${apiKey}`;
-        }
-        getMovies(url);
-    }, [query]);
+        getTopMovies(url);
+    }, [url]);
 
     return topMovies;
 }

@@ -25,3 +25,10 @@ export interface Movie {
     runtime?: number;
     overview?: string;
 }
+
+export interface topMovies {
+    id?: number;
+    title?: string;
+    poster_path?: string;
+    vote_average?: number;
+}
