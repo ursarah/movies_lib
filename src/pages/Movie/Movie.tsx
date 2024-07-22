@@ -13,6 +13,12 @@ const Movie = () => {
     const { id } = useParams();
     const topMoviesId = useFetchId(id);
 
+    const formatCurrecy = (currency: number | undefined) => {
+        return Number(currency).toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+        });
+    };
     return (
         <div className="movie-page">
             {topMoviesId && (
@@ -26,19 +32,19 @@ const Movie = () => {
                         <h3>
                             <BsWallet2 /> Orçamento:
                         </h3>
-                        {/* <p>{formatCurrecy(topMoviesId.budget)}</p> */}
+                        <p>{formatCurrecy(topMoviesId.budget)}</p>
                     </div>
                     <div className="info">
                         <h3>
                             <BsGraphUp /> Receita:
                         </h3>
-                        {/* <p>{formatCurrecy(topMoviesId.revenue)}</p> */}
+                        <p>{formatCurrecy(topMoviesId.revenue)}</p>
                     </div>
                     <div className="info">
                         <h3>
                             <BsHourglassSplit /> Duração:
                         </h3>
-                        <p>{topMoviesId.runtime}</p>
+                        <p>{topMoviesId.runtime} minutos</p>
                     </div>
 
                     <div className="info description">
